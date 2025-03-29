@@ -1,0 +1,5 @@
+customtkinter==0.3
+pillow==11.1.0
+CTkMessagebox==2.7
+pandas==2.2.3
+openpyxl==3.1.5
