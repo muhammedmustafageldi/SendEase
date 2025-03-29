@@ -45,8 +45,8 @@ The app will validate the email format and notify you if any invalid addresses a
 
 ### Screenshots 📸
 <p align="center">
-   <img src="https://github.com/muhammedmustafageldi/My-ScreenShots-Files/blob/main/Screnshots/SendEase/1.png" alt="SendEase Demo" width="250">
-   <img src="https://github.com/muhammedmustafageldi/My-ScreenShots-Files/blob/main/Screnshots/SendEase/2.png" alt="SendEase Demo" width="250">
+   <img src="https://github.com/muhammedmustafageldi/My-ScreenShots-Files/blob/main/Screnshots/SendEase/1.png" alt="SendEase Demo">
+   <img src="https://github.com/muhammedmustafageldi/My-ScreenShots-Files/blob/main/Screnshots/SendEase/2.png" alt="SendEase Demo">
 </p>
 
 ---
