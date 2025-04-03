@@ -36,7 +36,7 @@ Once you have it, use that password in the app settings instead of your regular 
 1. **Download and Install**: Download the executable file for your operating system.
 2. **Set Up**: Enter your email credentials (using the App Password).
 3. **Send Emails**: Add recipients, subject, body, and attachments, then hit send!
-4. **Import Emails**: You can easily import recipients from a .txt file or an .xls/.xlsx file:
+4. **Import Recipients**: You can easily import recipients from a .txt file or an .xls/.xlsx file:
 	•	Text files: Each email address should be on a new line.
 	•	Excel files: Simply import from the column containing email addresses.
 The app will validate the email format and notify you if any invalid addresses are found.
