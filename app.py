@@ -38,25 +38,32 @@ class App(CTk):
         self.title("SendEase")
 
         # App icon
+        self.iconbitmap('assets/app_icon.ico')
+
         ico = Image.open('assets/app_icon.png')
         photo = ImageTk.PhotoImage(ico)
         self.wm_iconphoto(True, photo)
 
         # Set window size
         window_width = 800
-        window_height = 825
+        window_height = 800
 
         # Block resizable
-        self.resizable(False, False)
+        #self.resizable(False, False)
 
         # Get window position as center
-        position_x, position_y = self.calculate_window_position(window_width, window_height)
-        self.geometry(f"{window_width}x{window_height}+{position_x}+{position_y}")
+        #position_x, position_y = self.calculate_window_position(window_width, window_height)
+        #self.geometry(f"{window_width}x{window_height}+{position_x}+{position_y}")
+
+        # Set window full size
+        self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+0+0")
 
         # Set theme
         ThemeManager.load_theme("green")
+        set_appearance_mode("dark")
 
         self.create_frames()
+
 
     # Method that ensures the window opens in the center of the screen
     def calculate_window_position(self, window_width, window_height):
@@ -84,13 +91,10 @@ class App(CTk):
         upper_frame = CTkFrame(self)
         upper_frame.grid(row=0, column=0, sticky="nsew")
 
-        CTkLabel(upper_frame, text="MAIL BOT", font=("Arial", 20, "bold"), anchor="center", pady=5).pack(pady=5,
-                                                                                                         padx=20)
-
         logo_image = Image.open("assets/logo.png")
         logo = CTkImage(logo_image, size=(90, 90))
 
-        CTkLabel(upper_frame, image=logo, text="").pack()
+        CTkLabel(upper_frame, image=logo, text="").pack(pady=5)
 
     def center_frame(self):
         center_frame = CTkFrame(self)
@@ -186,7 +190,7 @@ class App(CTk):
                                      border_width=2,
                                      border_color="black", hover_color="#f2a30f", font=("Arial", 17, "bold"),
                                      command=self.send_mail)
-        self.send_button.pack(padx=20, pady=10, fill="x", expand=True)
+        self.send_button.pack(padx=20, pady=5, fill="x", expand=True)
 
         self.receiver_label = CTkLabel(lower_frame, text="")
 
@@ -225,6 +229,12 @@ class App(CTk):
             x, y = self.calculate_window_position(window_width=window_width, window_height=window_height)
             self.import_dialog.geometry(f"{window_width}x{window_height}+{x}+{y}")
             self.import_dialog.title("Import emails")
+
+            # Make the dialog modal (stay on top)
+            self.import_dialog.grab_set()
+
+            # Window icon
+            self.import_dialog.after(200, lambda: self.import_dialog.iconbitmap('assets/app_icon.ico'))
 
             icon_file = Image.open("assets/import.png")
             import_icon = CTkImage(icon_file, size=(100, 100))
@@ -390,6 +400,12 @@ class App(CTk):
 
                 # Set dialog title
                 self.result_dialog.title(state)
+
+                # Make the dialog modal (stay on top)
+                self.result_dialog.grab_set()
+
+                # Window icon
+                self.result_dialog.after(200, lambda: self.import_dialog.iconbitmap('assets/app_icon.ico'))
 
                 CTkLabel(self.result_dialog, text=title, font=("Arial", 16)).pack(padx=10, pady=10)
 
